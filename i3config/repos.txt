@@ -1,0 +1,8 @@
+https://github.com/cytopia/i3blocks-modules
+https://github.com/nonpop/xkblayout-state
+
+http://konpa.github.io/devicon/
+https://fontawesome.com/cheatsheet
+
+# Necessary for the CPU module to work
+sudo apt-get install cpufrequtils

@@ -1,0 +1,13 @@
+Useful links for vim ricing
+
+https://www.youtube.com/watch?v=zF9EcpYb1KE
+https://github.com/VundleVim/Vundle.vim
+
+
+In order for YouCompleteMe to work, go to the vundle directory and then the YouCompleteMe directory and run the install script.
+
+
+
+A better approach is to use vim-plug
+https://github.com/junegunn/vim-plug
+
