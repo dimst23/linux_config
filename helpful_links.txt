@@ -1,2 +1,7 @@
 https://unicode-table.com/en/
 
+
+# Used in my i3 configuration
+https://github.com/cytopia/i3blocks-modules
+https://github.com/rjekker/i3-battery-popup
+
