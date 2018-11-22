@@ -95,15 +95,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Define workspace variables
-set $ws_firefox			"1 Browser "
-set $ws_terminal		"2 Terminals "
+set $ws_firefox			    "1 Browser "
+set $ws_terminal		    "2 Terminals "
 set $ws_cprogramming		"3 C/C++ "
 set $ws_pythonprogramming	"4 Python "
-set $ws_science			"5 Science "
-set $ws_general			"6 General "
+set $ws_science			    "5 Science "
+set $ws_general			    "6 General "
 set $ws_fileexplorer		"7 Files "
-set $ws_chatting		"9 Chatting "
-set $ws_media			"10 Media "
+set $ws_comms               "8 Comms "
+set $ws_chatting		    "9 Chatting "
+set $ws_media			    "10 Media "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws_firefox
@@ -113,7 +114,7 @@ bindsym $mod+4 workspace $ws_pythonprogramming
 bindsym $mod+5 workspace $ws_science
 bindsym $mod+6 workspace $ws_general
 bindsym $mod+7 workspace $ws_fileexplorer
-bindsym $mod+8 workspace 8
+bindsym $mod+8 workspace $ws_comms
 bindsym $mod+9 workspace $ws_chatting
 bindsym $mod+0 workspace $ws_media
 
@@ -125,7 +126,7 @@ bindsym $mod+Shift+4 move container to workspace $ws_pythonprogramming
 bindsym $mod+Shift+5 move container to workspace $ws_science
 bindsym $mod+Shift+6 move container to workspace $ws_general
 bindsym $mod+Shift+7 move container to workspace $ws_fileexplorer
-bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+8 move container to workspace $ws_comms
 bindsym $mod+Shift+9 move container to workspace $ws_chatting
 bindsym $mod+Shift+0 move container to workspace $ws_media
 
@@ -196,6 +197,7 @@ bar {
 
 # Floating windows
 for_window [class="Skype"] floating enable
+for_window [class="RadioTele_PC.py"] floating enable
 
 # Window focus
 for_window [class="Gnome-terminal"] focus
@@ -205,16 +207,17 @@ for_window [class="Firefox"] focus
 for_window [title="Battery Warning"] sticky enable
 
 # Workspace assignments
-assign [class="Firefox"]			$ws_firefox
-assign [class="Gnome-terminal"]			$ws_terminal
+assign [class="Firefox"]			            $ws_firefox
+assign [class="Gnome-terminal"]			        $ws_terminal
 assign [class="Atollic TrueSTUDIO for STM32"]	$ws_cprogramming
-assign [class="Eclipse"]			$ws_cprogramming
-assign [class="jetbrains-pycharm"]		$ws_pythonprogramming
-assign [class="Skype"]				$ws_chatting
-assign [class="discord"]			$ws_chatting
-assign [class="^(Spotify)$"]			$ws_media
-assign [class="jetbrains-clion"]		$ws_cprogramming
-assign [class="Nautilus"]			$ws_fileexplorer
+assign [class="Eclipse"]			            $ws_cprogramming
+assign [class="jetbrains-pycharm"]		        $ws_pythonprogramming
+assign [class="Skype"]				            $ws_chatting
+assign [class="discord"]			            $ws_chatting
+assign [class="^(Spotify)$"]			        $ws_media
+assign [class="jetbrains-clion"]		        $ws_cprogramming
+assign [class="Nautilus"]			            $ws_fileexplorer
+assign [class="Mattermost"]                     $ws_comms
 
 
 # Bindings
