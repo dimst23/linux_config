@@ -95,16 +95,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Define workspace variables
-set $ws_firefox			    "1 Browser "
-set $ws_terminal		    "2 Terminals "
+set $ws_firefox			"1 Browser "
+set $ws_terminal		"2 Terminals "
 set $ws_cprogramming		"3 C/C++ "
 set $ws_pythonprogramming	"4 Python "
-set $ws_science			    "5 Science "
-set $ws_general			    "6 General "
+set $ws_science			"5 Science "
+set $ws_general			"6 General "
 set $ws_fileexplorer		"7 Files "
-set $ws_comms               "8 Comms "
-set $ws_chatting		    "9 Chatting "
-set $ws_media			    "10 Media "
+set $ws_comms			"8 Comms "
+set $ws_chatting		"9 Chatting "
+set $ws_media			"10 Media "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws_firefox
@@ -164,11 +164,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Set custom color variables
-set $bg-color	         #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+#set $bg-color			#2f343f
+#set $inactive-bg-color		#2f343f
+set $bg-color			#000000
+set $inactive-bg-color		#000000
+set $text-color			#f3f4f5
+set $inactive-text-color	#676E7D
+set $urgent-bg-color		#E53935
 
 # Set the window colors
 #
@@ -176,7 +178,7 @@ set $urgent-bg-color     #E53935
 client.focused		$bg-color		$bg-color		$text-color		#00ff00
 client.unfocused	$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
 client.focused_inactive	$inactive-bg-color	$inactive-bg-color	$inactive-text-color	#00ff00
-client.urgent		$urgent-bg-color	$urgent-bg-color	$text-color				#00ff00
+client.urgent		$urgent-bg-color	$urgent-bg-color	$text-color		#00ff00
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -187,7 +189,7 @@ bar {
         tray_output primary
 	colors {
 		background $bg-color
-#		separator #757575
+		separator #757575
 		#                  border             background         text
 		focused_workspace  $bg-color          $bg-color          $text-color
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
@@ -207,24 +209,24 @@ for_window [class="Firefox"] focus
 for_window [title="Battery Warning"] sticky enable
 
 # Workspace assignments
-assign [class="Firefox"]			            $ws_firefox
-assign [class="Gnome-terminal"]			        $ws_terminal
+assign [class="Firefox"]			$ws_firefox
+assign [class="Gnome-terminal"]			$ws_terminal
 assign [class="Atollic TrueSTUDIO for STM32"]	$ws_cprogramming
-assign [class="Eclipse"]			            $ws_cprogramming
-assign [class="jetbrains-pycharm"]		        $ws_pythonprogramming
-assign [class="Skype"]				            $ws_chatting
-assign [class="discord"]			            $ws_chatting
-assign [class="^(Spotify)$"]			        $ws_media
-assign [class="jetbrains-clion"]		        $ws_cprogramming
-assign [class="Nautilus"]			            $ws_fileexplorer
-assign [class="Mattermost"]                     $ws_comms
+assign [class="Eclipse"]			$ws_cprogramming
+assign [class="jetbrains-pycharm"]		$ws_pythonprogramming
+assign [class="Skype"]				$ws_chatting
+assign [class="discord"]			$ws_chatting
+assign [class="^(Spotify)$"]			$ws_media
+assign [class="jetbrains-clion"]		$ws_cprogramming
+assign [class="Nautilus"]			$ws_fileexplorer
+assign [class="Mattermost"]			$ws_comms
 
 
 # Bindings
 # Custom key bindings for apps
 bindsym $mod+shift+x exec i3lock
 bindsym $mod+shift+a exec /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/TrueSTUDIO
-bindsym $mod+shift+n exec /home/dimitris/CLion-2018.2.5/clion-2018.2.5/bin/clion.sh
+bindsym $mod+shift+n exec ~/clion-*/bin/clion.sh
 bindsym $mod+shift+p exec charm
 bindsym $mod+shift+f exec firefox
 
@@ -238,8 +240,10 @@ bindsym XF86AudioLowerVolume	exec --no-startup-id pactl set-sink-volume 0 -2% #d
 bindsym XF86AudioMute		exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp	exec xbacklight -inc 5 # increase screen brightness
-bindsym XF86MonBrightnessDown	exec xbacklight -dec 5 # decrease screen brightness
+# Give write permissions to backlight file in /sys/class/(whichever folder)/backlight...
+# ...if it is not working
+bindsym XF86MonBrightnessUp	exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown	exec light -U 5 # decrease screen brightness
 
 # Power operations
 bindsym $mod+ctrl+x exec shutdown now
@@ -248,11 +252,13 @@ bindsym $mod+ctrl+r exec shutdown -r now
 
 # Executions
 # Set wallpaper
-exec_always feh --bg-scale /home/dimitris/.wallpaper.jpg
+exec_always feh --bg-scale ~/.wallpaper.jpg
 
 # Trackpad configuration (Natural scrolling and tap click)
-exec xinput set-prop 12 278 1
-exec xinput set-prop 12 286 1
+exec xinput set-prop 11 280 1
+exec xinput set-prop 14 280 1
+exec xinput set-prop 11 288 1
+exec xinput set-prop 14 288 1
 
 # Run compton to support transparencies
 exec --no-startup-id compton -f
@@ -265,4 +271,4 @@ exec --no-startup-id redshift
 exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id nautilus
 exec_always --no-startup-id "setxkbmap -layout us,gr -variant ,, -option grp:alt_space_toggle"
-exec_always --no-startup-id ./i3-battery-popup -t 2m -n
+#exec_always --no-startup-id ./i3-battery-popup -t 2m -n

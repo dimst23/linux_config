@@ -1,0 +1,17 @@
+https://unicode-table.com/en/
+
+
+# Used in my i3 configuration
+https://github.com/cytopia/i3blocks-modules
+https://github.com/rjekker/i3-battery-popup
+
+# GPG key operations
+http://irtfweb.ifa.hawaii.edu/~lockhart/gpg/
+
+# Assining a specific private key to git
+https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+git config --globsl core.sshCommand 'ssh -i private_key_file' 
+
+# Make git sign evry commit by default
+https://gist.github.com/mort3za/ad545d47dd2b54970c102fe39912f305
+
