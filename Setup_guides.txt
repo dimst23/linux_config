@@ -18,3 +18,7 @@ https://gist.github.com/mort3za/ad545d47dd2b54970c102fe39912f305
 # Git setup
 Do not forget to set the global user.email and user.name for the
 first setup.
+
+# Redshift guide
+http://manpages.ubuntu.com/manpages/trusty/man5/redshift.5.html
+
