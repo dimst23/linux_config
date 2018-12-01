@@ -22,3 +22,12 @@ first setup.
 # Redshift guide
 http://manpages.ubuntu.com/manpages/trusty/man5/redshift.5.html
 
+# Packages to install so the i3 configuration works
+cpufrequtils, feh, compton, i3blocks
+
+# For brightness control
+https://github.com/haikarainen/light
+
+# Vim plugin manager
+https://github.com/junegunn/vim-plug
+
