@@ -15,3 +15,6 @@ git config --globsl core.sshCommand 'ssh -i private_key_file'
 # Make git sign evry commit by default
 https://gist.github.com/mort3za/ad545d47dd2b54970c102fe39912f305
 
+# Git setup
+Do not forget to set the global user.email and user.name for the
+first setup.
