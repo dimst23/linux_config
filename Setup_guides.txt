@@ -31,3 +31,7 @@ https://github.com/haikarainen/light
 # Vim plugin manager
 https://github.com/junegunn/vim-plug
 
+# Very IMPORTANT notice if you have NVIDIA card and use Cuda and drivers
+# Download bumblebee, because otherwise i3 will be a black screen!
+sudo apt-get install bumblebee
+
