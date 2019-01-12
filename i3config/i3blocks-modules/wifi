@@ -17,11 +17,12 @@ PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
 ###
 appname="wifi"
 
-if [ ! -z ${BLOCK_INSTANCE+x} ]; then
-	iface="${BLOCK_INSTANCE}"
-else
+# Let the script find the wifi interface
+#if [ ! -z ${BLOCK_INSTANCE+x} ]; then
+#	iface="${BLOCK_INSTANCE}"
+#else
 	iface="$( cat /proc/net/wireless 2>/dev/null | tail -1 | awk '{print $1}' | sed 's/://g' )"
-fi
+#fi
 
 format=" {status_or_ip} ({ssid} {quality}%)"
 
