@@ -35,3 +35,8 @@ https://github.com/junegunn/vim-plug
 # Download bumblebee, because otherwise i3 will be a black screen!
 sudo apt-get install bumblebee
 
+# Vim airline seperators
+A very important addition is that in order for the seperators of the vim airline to appear
+powerline font have to be installed!! Below you can find the commad for the installation
+sudo apt install fonts-powerline
+
