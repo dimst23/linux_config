@@ -10,7 +10,9 @@ set hidden
 set number
 set ruler
 set showcmd
-set relativenumber
+set relativenumber " Enable relative numbering
+set incsearch " Highlight the search results
+
 
 " color skittles_berry
 
@@ -19,8 +21,13 @@ call plug#begin()
 	Plug 'scrooloose/nerdtree'
 	Plug 'vim-scripts/L9' " helpers
 	
-	" ==== Completion
+    " ==== Get code snippets when needed
+    Plug 'dbeniamine/cheat.sh-vim'
+    " Plug 'mickaobrien/vim-stackoverflow'
+	
+    " ==== Completion
 	" Plug 'Valloric/YouCompleteMe'
+    Plug 'scrooloose/nerdcommenter'
 
 	" ==== Git
 	Plug 'airblade/vim-gitgutter'
@@ -50,7 +57,9 @@ call plug#begin()
 	" Plug 'SirVer/ultisnips'
 
 	" Status bar on bottom
-	Plug 'bling/vim-airline'
+	Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'powerline/fonts'
 
 	" ==== PLUGIN THEMES
 	Plug 'morhetz/gruvbox'
@@ -58,9 +67,12 @@ call plug#end()
 
 filetype plugin indent on
 
+let g:airline_powerline_fonts = 1 " Required for correct use of airline
+
 " ==== Colors and other basic settings
 colorscheme gruvbox
-set guifont=Monospace\ 10
+"set guifont=Monospace\ 10
+
 set fillchars+=vert:\$
 set laststatus=2
 set smartindent
@@ -73,7 +85,7 @@ let &colorcolumn="80"
 :set guioptions-=T  "remove toolbar
 :set guioptions-=r  "remove right-hand scroll bar
 :set guioptions-=L  "remove left-hand scroll bar
-:set lines=999 columns=999
+
 
 " ==== NERDTREE
 let NERDTreeIgnore = ['__pycache__', '\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*$', '[a-zA-Z]*egg[a-zA-Z]*', '.DS_Store']
