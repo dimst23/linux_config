@@ -10,6 +10,13 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $mod2 Mod1
+
+
+# Define the monitors
+set $primaryMonitor eDP1
+set $secondaryMonitor HDMI1
+
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -94,6 +101,9 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Enable/Disable dual display ouput
+bindsym $mod2+d exec --no-startup-id sh ~/.config/i3/scripts/screencheck.sh $primaryMonitor $secondaryMonitor
+
 # Define workspace variables
 set $ws_firefox			"1 Browser "
 set $ws_terminal		"2 Terminals "
@@ -105,6 +115,26 @@ set $ws_fileexplorer		"7 Files "
 set $ws_comms			"8 Comms "
 set $ws_chatting		"9 Chatting "
 set $ws_media			"10 Media "
+
+set $ws_browser_secScreen "1 Browsing "
+set $ws_terminals_secScreen "2 CLI "
+set $ws_general_secScreen "3 General "
+
+# Assign workspaces to specific screens
+workspace $ws_firefox               output $primaryMonitor
+workspace $ws_cprogramming          output $primaryMonitor
+workspace $ws_pythonprogramming     output $primaryMonitor
+workspace $ws_science               output $primaryMonitor
+workspace $ws_general               output $primaryMonitor
+workspace $ws_fileexplorer          output $primaryMonitor
+workspace $ws_comms                 output $primaryMonitor
+workspace $ws_chatting              output $primaryMonitor
+workspace $ws_media                 output $primaryMonitor
+
+workspace $ws_browser_secScreen     output $secondaryMonitor
+workspace $ws_terminals_secScreen   output $secondaryMonitor
+workspace $ws_general_secScreen     output $secondaryMonitor
+
 
 # switch to workspace
 bindsym $mod+1 workspace $ws_firefox
@@ -118,6 +148,10 @@ bindsym $mod+8 workspace $ws_comms
 bindsym $mod+9 workspace $ws_chatting
 bindsym $mod+0 workspace $ws_media
 
+bindsym $mod2+1 workspace $ws_browser_secScreen
+bindsym $mod2+2 workspace $ws_terminals_secScreen
+bindsym $mod2+3 workspace $ws_general_secScreen
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws_firefox
 bindsym $mod+Shift+2 move container to workspace $ws_terminal
@@ -129,6 +163,10 @@ bindsym $mod+Shift+7 move container to workspace $ws_fileexplorer
 bindsym $mod+Shift+8 move container to workspace $ws_comms
 bindsym $mod+Shift+9 move container to workspace $ws_chatting
 bindsym $mod+Shift+0 move container to workspace $ws_media
+
+bindsym $mod2+Shift+1 move container to workspace $ws_browser_secScreen
+bindsym $mod2+Shift+2 move container to workspace $ws_terminals_secScreen
+bindsym $mod2+Shift+3 move container to workspace $ws_general_secScreen
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -200,6 +238,7 @@ bar {
 # Floating windows
 for_window [class="Skype"] floating enable
 for_window [class="RadioTele_PC.py"] floating enable
+for_window [class="obs"] floating enable
 
 # Window focus
 for_window [class="Gnome-terminal"] focus
@@ -221,6 +260,7 @@ assign [class="jetbrains-clion"]		$ws_cprogramming
 assign [class="Nautilus"]			$ws_fileexplorer
 assign [class="Mattermost"]			$ws_comms
 assign [class="MATLAB R2018a"]      $ws_science
+assign [class="obs"]                $ws_general
 
 
 # Bindings
@@ -244,23 +284,28 @@ bindsym XF86AudioMute		exec --no-startup-id pactl set-sink-mute 0 toggle # mute 
 # Sreen brightness controls
 # Give write permissions to backlight file in /sys/class/(whichever folder)/backlight...
 # ...if it is not working
-bindsym XF86MonBrightnessUp	exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown	exec light -U 5 # decrease screen brightness
+bindsym XF86MonBrightnessUp	exec light -A 2 # increase screen brightness
+bindsym XF86MonBrightnessDown	exec light -U 2 # decrease screen brightness
 
 # Power operations
 bindsym $mod+ctrl+x exec shutdown now
 bindsym $mod+ctrl+r exec shutdown -r now
 
+# Rofi setup
+# bindsym $mod+d exec rofi -show run -opacity "85" -bw 0 -bc "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd"
 
 # Executions
 # Set wallpaper
 exec_always feh --bg-scale ~/.wallpaper.jpg
 
 # Trackpad configuration (Natural scrolling and tap click)
-exec xinput set-prop 11 274 1
-exec xinput set-prop 14 274 1
-exec xinput set-prop 11 282 1
-exec xinput set-prop 14 282 1
+set $TAPPING $(xinput list-props 11 | grep "Tapping Enabled" | head -1 | awk '{print $4}' | grep -o '[0-9]\+')
+set $SCROLLING $($ xinput list-props 11 | grep "Natural Scrolling Enabled" | head -1 | awk '{print $5}' | grep -o '[0-9]\+')
+
+exec_always xinput set-prop 11 279 1
+exec_always xinput set-prop 14 279 1
+exec_always xinput set-prop 11 287 1
+exec_always xinput set-prop 14 287 1
 
 # Run compton to support transparencies
 exec --no-startup-id compton -f
