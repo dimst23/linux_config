@@ -8,7 +8,10 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+POWERLEVEL9K_MODE='awesome-fontconfig'
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -86,13 +89,21 @@ custom_cd() {
 }
 alias cd="custom_cd"
 
+# Vim command redirect
+redirect_vim() {
+	nvim "$@";
+}
+alias vi="redirect_vim"
+alias vim="redirect_vim"
+
 autoload -U compinit
 compinit
 
 source ~/repos/linux_config/zsh/extra_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/repos/linux_config/zsh/extra_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/repos/linux_config/zsh/prompt.zsh
 
-source ~/repos/linux_config/zsh/prompt.zsh
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
