@@ -259,6 +259,7 @@ assign [class="Spotify"]			$ws_media
 assign [class="jetbrains-clion"]		$ws_cprogramming
 assign [class="Nautilus"]			$ws_fileexplorer
 assign [class="Mattermost"]			$ws_comms
+assign [class="Slack"] 				$ws_comms
 assign [class="MATLAB R2018a"]      $ws_science
 assign [class="obs"]                $ws_general
 
