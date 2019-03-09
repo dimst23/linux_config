@@ -22,4 +22,7 @@ echo "source $PWD/vim/vimrc" > $HOME/.vimrc
 echo "source $PWD/vim/neo_vimrc" > $HOME/.config/nvim/init.vim
 echo "source $PWD/zsh/zshrc" > $HOME/.zshrc
 
+# Install external plugins for zsh
+git submodule update --init
+
 echo "Don't forget to install fonts-awesome"
