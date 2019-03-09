@@ -248,20 +248,21 @@ for_window [class="Firefox"] focus
 for_window [title="Battery Warning"] sticky enable
 
 # Workspace assignments
-assign [class="Firefox"]			$ws_firefox
-assign [class="Gnome-terminal"]			$ws_terminal
+assign [class="Firefox"]						$ws_firefox
+assign [class="Gnome-terminal"]					$ws_terminal
 assign [class="Atollic TrueSTUDIO for STM32"]	$ws_cprogramming
-assign [class="Eclipse"]			$ws_cprogramming
-assign [class="jetbrains-pycharm"]		$ws_pythonprogramming
-assign [class="Skype"]				$ws_chatting
-assign [class="discord"]			$ws_chatting
-assign [class="Spotify"]			$ws_media
-assign [class="jetbrains-clion"]		$ws_cprogramming
-assign [class="Nautilus"]			$ws_fileexplorer
-assign [class="Mattermost"]			$ws_comms
-assign [class="Slack"] 				$ws_comms
-assign [class="MATLAB R2018a"]      $ws_science
-assign [class="obs"]                $ws_general
+assign [class="Eclipse"]						$ws_cprogramming
+assign [class="jetbrains-pycharm"]				$ws_pythonprogramming
+assign [class="Skype"]							$ws_chatting
+assign [class="discord"]						$ws_chatting
+assign [class="Spotify"]						$ws_media
+assign [class="jetbrains-clion"]				$ws_cprogramming
+assign [class="Nautilus"]						$ws_fileexplorer
+assign [class="Mattermost"]						$ws_comms
+assign [class="Slack"] 							$ws_comms
+assign [class="Gnuradio-companion"] 			$ws_science
+assign [class="MATLAB R2018a"]      			$ws_science
+assign [class="obs"]                			$ws_general
 
 
 # Bindings
