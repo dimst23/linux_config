@@ -14,8 +14,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Create symbolic links for the configuration files
-ln -s $HOME/repos/linux_config/i3config/* $HOME/.config/i3
-ln -s $HOME/repos/linux_config/other_files/* $HOME/.config/
+ln -s $PWD/i3config/* $HOME/.config/i3
+ln -s $PWD/other_files/* $HOME/.config/
 
 # Source the configuration files
 echo "source $PWD/vim/vimrc" > $HOME/.vimrc
