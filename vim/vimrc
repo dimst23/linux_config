@@ -10,8 +10,10 @@ set hidden
 set number
 set ruler
 set showcmd
-set relativenumber " Enable relative numbering
 set incsearch " Highlight the search results
+
+set number relativenumber
+set nu rnu
 
 
 " color skittles_berry

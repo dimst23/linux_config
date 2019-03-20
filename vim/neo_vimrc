@@ -7,12 +7,15 @@ syntax enable
 set background=dark
 set ruler
 set hidden
-set number
+" set number
 set ruler
 set showcmd
 set relativenumber " Enable relative numbering
 set incsearch " Highlight the search results
 
+" Turn on hybrid numbering
+set number relativenumber
+set nu rnu
 
 " color skittles_berry
 
