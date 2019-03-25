@@ -116,9 +116,10 @@ set $ws_comms			"8 Comms "
 set $ws_chatting		"9 Chatting "
 set $ws_media			"10 Media "
 
-set $ws_browser_secScreen "1 Browsing "
-set $ws_terminals_secScreen "2 CLI "
-set $ws_general_secScreen "3 General "
+set $ws_browser_secScreen 			"1 Browsing "
+set $ws_terminals_secScreen 		"2 CLI "
+set $ws_coding_secScreen			"3 Coding "
+set $ws_general_secScreen 			"4 General "
 
 # Assign workspaces to specific screens
 workspace $ws_firefox               output $primaryMonitor
@@ -133,6 +134,7 @@ workspace $ws_media                 output $primaryMonitor
 
 workspace $ws_browser_secScreen     output $secondaryMonitor
 workspace $ws_terminals_secScreen   output $secondaryMonitor
+workspace $ws_coding_secScreen      output $secondaryMonitor
 workspace $ws_general_secScreen     output $secondaryMonitor
 
 
@@ -150,7 +152,8 @@ bindsym $mod+0 workspace $ws_media
 
 bindsym $mod2+1 workspace $ws_browser_secScreen
 bindsym $mod2+2 workspace $ws_terminals_secScreen
-bindsym $mod2+3 workspace $ws_general_secScreen
+bindsym $mod2+3 workspace $ws_coding_secScreen
+bindsym $mod2+4 workspace $ws_general_secScreen
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws_firefox
@@ -166,7 +169,8 @@ bindsym $mod+Shift+0 move container to workspace $ws_media
 
 bindsym $mod2+Shift+1 move container to workspace $ws_browser_secScreen
 bindsym $mod2+Shift+2 move container to workspace $ws_terminals_secScreen
-bindsym $mod2+Shift+3 move container to workspace $ws_general_secScreen
+bindsym $mod2+Shift+3 move container to workspace $ws_coding_secScreen
+bindsym $mod2+Shift+4 move container to workspace $ws_general_secScreen
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -237,7 +241,7 @@ bar {
 
 # Floating windows
 for_window [class="Skype"] floating enable
-for_window [class="RadioTele_PC.py"] floating enable
+for_window [class="RadioTelescopePC.py"] floating enable
 for_window [class="obs"] floating enable
 
 # Window focus
