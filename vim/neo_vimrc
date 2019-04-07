@@ -56,6 +56,9 @@ call plug#begin()
 	Plug 'ervandew/supertab'
 	Plug 'terryma/vim-multiple-cursors'
 
+	" ==== Flutter plugin
+	Plug 'thosakwe/vim-flutter'
+
 	" ==== snippets
 	" Plug 'SirVer/ultisnips'
 
