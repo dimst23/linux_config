@@ -103,6 +103,7 @@ bindsym $mod+a focus parent
 
 # Enable/Disable dual display ouput
 bindsym $mod2+d exec --no-startup-id sh ~/.config/i3/scripts/screencheck.sh $primaryMonitor $secondaryMonitor
+bindsym $mod2+shift+d exec --no-startup-id sh ~/.config/i3/scripts/screencheck.sh $primaryMonitor $secondaryMonitor left
 
 # Define workspace variables
 set $ws_firefox			"1 Browser "
@@ -306,7 +307,7 @@ exec_always feh --bg-scale ~/.wallpaper.jpg
 
 # Trackpad configuration (Natural scrolling and tap click)
 set $TAPPING $(xinput list-props 11 | grep "Tapping Enabled" | head -1 | awk '{print $4}' | grep -o '[0-9]\+')
-set $SCROLLING $($ xinput list-props 11 | grep "Natural Scrolling Enabled" | head -1 | awk '{print $5}' | grep -o '[0-9]\+')
+set $SCROLLING $(xinput list-props 11 | grep "Natural Scrolling Enabled" | head -1 | awk '{print $5}' | grep -o '[0-9]\+')
 
 exec_always xinput set-prop 11 279 1
 exec_always xinput set-prop 14 279 1
