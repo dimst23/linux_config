@@ -272,7 +272,7 @@ assign [class="obs"]                			$ws_general
 
 # Bindings
 # Custom key bindings for apps
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec i3lock -i ~/.i3lockimage_new.png
 bindsym $mod+shift+a exec /opt/Atollic_TrueSTUDIO_for_STM32_x86_64_9.1.0/ide/TrueSTUDIO
 bindsym $mod+shift+n exec ~/clion-*/bin/clion.sh
 bindsym $mod+shift+p exec charm
@@ -303,7 +303,7 @@ bindsym $mod+ctrl+r exec shutdown -r now
 
 # Executions
 # Set wallpaper
-exec_always feh --bg-scale ~/.wallpaper.jpg
+exec_always feh --bg-fill ~/.wallpaper.jpg
 
 # Trackpad configuration (Natural scrolling and tap click)
 set $TAPPING $(xinput list-props 11 | grep "Tapping Enabled" | head -1 | awk '{print $4}' | grep -o '[0-9]\+')
