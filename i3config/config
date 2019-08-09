@@ -284,9 +284,9 @@ bindsym Print exec gnome-screenshot
 bindsym ctrl+Print exec gnome-screenshot -w
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume	exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
-bindsym XF86AudioLowerVolume	exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
-bindsym XF86AudioMute		exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume	exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +2% #increase sound volume
+bindsym XF86AudioLowerVolume	exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -2% #decrease sound volume
+bindsym XF86AudioMute		exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle # mute sound
 
 # Sreen brightness controls
 # Give write permissions to backlight file in /sys/class/(whichever folder)/backlight...
@@ -309,10 +309,10 @@ exec_always feh --bg-fill ~/.wallpaper.jpg
 set $TAPPING $(xinput list-props 11 | grep "Tapping Enabled" | head -1 | awk '{print $4}' | grep -o '[0-9]\+')
 set $SCROLLING $(xinput list-props 11 | grep "Natural Scrolling Enabled" | head -1 | awk '{print $5}' | grep -o '[0-9]\+')
 
-exec_always xinput set-prop 11 279 1
-exec_always xinput set-prop 14 279 1
-exec_always xinput set-prop 11 287 1
-exec_always xinput set-prop 14 287 1
+exec_always xinput set-prop 11 291 1
+exec_always xinput set-prop 14 291 1
+exec_always xinput set-prop 11 299 1
+exec_always xinput set-prop 14 299 1
 
 # Run compton to support transparencies
 exec --no-startup-id compton -f
