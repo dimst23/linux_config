@@ -313,7 +313,7 @@ exec_always feh --bg-fill ~/.wallpaper.jpg
 #exec_always xinput set-prop 16 305 1
 #exec_always xinput set-prop 11 313 1
 #exec_always xinput set-prop 16 313 1
-exec_always touchpad_selection.sh
+exec_always exec ~/.config/i3/scripts/touchpad_values.sh
 
 # Run compton to support transparencies
 exec --no-startup-id compton -f
